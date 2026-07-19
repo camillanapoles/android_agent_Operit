@@ -184,7 +184,7 @@ object MemoryLibrary {
         repository: MemoryRepository,
         aiService: AIService
     ) {
-        val useEnglish = LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("en")
+        val useEnglish = !LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("zh")
         val memoriesDigest = memories.joinToString("\n") { "- title: ${it.title}, content: ${it.content.take(100)}..." }
         val systemPrompt = FunctionalPrompts.buildMemoryAutoCategorizePrompt(
             existingFolders = existingFolders,
@@ -490,7 +490,7 @@ object MemoryLibrary {
         profileId: String
     ): ParsedAnalysis {
         try {
-            val useEnglish = LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("en")
+            val useEnglish = !LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("zh")
             // --- Hybrid Strategy: Local rough search + LLM final decision ---
             // 1. Use a compact search query (question-focused) for rough candidate selection.
             val contextQuery = buildCandidateSearchQuery(query, solution)

@@ -198,7 +198,7 @@ object ToolExecutionManager {
     }
 
     private fun isEnglishLanguage(context: Context): Boolean {
-        return LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("en")
+        return !LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("zh")
     }
 
     private fun buildToolExposureDeniedResult(
