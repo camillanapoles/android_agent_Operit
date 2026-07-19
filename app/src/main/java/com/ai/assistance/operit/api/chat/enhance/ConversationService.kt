@@ -114,7 +114,7 @@ class ConversationService(
             customRules: String? = null
     ): String {
         try {
-            val useEnglish = LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("en")
+            val useEnglish = !LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("zh")
             val activePromptMetadata = buildActivePromptHookMetadata(context)
             var systemPrompt = FunctionalPrompts.buildSummarySystemPrompt(previousSummary, useEnglish)
             // 注入自定义总结规则
@@ -346,7 +346,7 @@ class ConversationService(
         multiServiceManager: MultiServiceManager
     ): String {
         return try {
-            val useEnglish = LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("en")
+            val useEnglish = !LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("zh")
             val systemPrompt = FunctionalPrompts.conversationTitleSystemPrompt(useEnglish)
             val userPrompt = FunctionalPrompts.conversationTitleUserPrompt(
                 userText = userText,
@@ -559,7 +559,7 @@ class ConversationService(
                     apiPreferences.safBookmarksFlow.first().map { it.name }
                 }.getOrElse { emptyList() }
 
-                val useEnglish = LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("en")
+                val useEnglish = !LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("zh")
                 resolvedUseEnglish = useEnglish
                 val roleCardToolAccess = characterCardToolAccessResolver.resolve(
                     roleCardId = effectiveRoleCardId,
@@ -1157,7 +1157,7 @@ ${FunctionalPrompts.translationUserPrompt(targetLanguage, text)}
         
         val toolList = toolDescriptions.joinToString("\n") { "- $it" }
 
-        val useEnglish = LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("en")
+        val useEnglish = !LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("zh")
         val descriptionPrompt =
             FunctionalPrompts.packageDescriptionUserPrompt(
                 pluginName = pluginName,
