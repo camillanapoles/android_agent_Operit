@@ -7236,4 +7236,6 @@ Kini anda boleh menggunakan mod AutoGLM di antara muka perbualan.</string>
     <string name="ai_message_use_package_failed">Panggilan use_package gagal: %1$s</string>
     <string name="ai_message_use_package_empty">Pulangan use_package kosong.</string>
     <string name="ai_message_package_warmup_item">%1$d. Kit %2$s (dikenakan %3$d kali)</string>
+    <string name="settings_summary_custom_rules">Peraturan Ringkasan Tersuai</string>
+    <string name="settings_summary_custom_rules_desc">Peraturan tambahan dihantar semasa meringkaskan perbualan. Biarkan kosong untuk tiada</string>
 </resources>
