@@ -7086,4 +7086,6 @@
     <string name="ai_message_use_package_failed">use_package 호출 실패: %1$s</string>
     <string name="ai_message_use_package_empty">use_package 반환 결과가 비어 있습니다.</string>
     <string name="ai_message_package_warmup_item">%1$d. 패키지 %2$s (%3$d회 적중)</string>
+    <string name="settings_summary_custom_rules">사용자 정의 요약 규칙</string>
+    <string name="settings_summary_custom_rules_desc">대화 요약 시 전송되는 추가 규칙입니다. 비워두면 추가하지 않습니다</string>
 </resources>

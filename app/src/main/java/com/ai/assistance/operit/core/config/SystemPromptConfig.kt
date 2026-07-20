@@ -318,7 +318,7 @@ AVAILABLE_TOOLS_SECTION""".trimIndent()
       for (packageName in validEnabledPackages) {
         val packageTools = packageManager.getPackageTools(packageName)
         if (packageTools != null) {
-          val preferredLanguage = if (useEnglish) "en" else "zh"
+          val preferredLanguage = LocaleUtils.getCurrentLanguage(context)
           val resolvedDescription = try {
               packageTools.description.resolve(preferredLanguage)
           } catch (_: Exception) {

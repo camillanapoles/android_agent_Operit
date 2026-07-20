@@ -53,7 +53,7 @@ fun ToolPromptManagerDialog(
 
     val context = LocalContext.current
     val useEnglish = remember(context) {
-        LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("en")
+        !LocaleUtils.getCurrentLanguage(context).lowercase().startsWith("zh")
     }
     val manageableTools = remember(useEnglish, toolOrder) {
         SystemToolPrompts.getManageableToolPrompts(useEnglish, toolOrder)
