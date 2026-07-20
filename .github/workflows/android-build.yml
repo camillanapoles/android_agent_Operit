@@ -198,13 +198,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          : "${GITHUB_CLIENT_ID:?OPERIT_GITHUB_CLIENT_ID is required}"
-          : "${GITHUB_CLIENT_SECRET:?OPERIT_GITHUB_CLIENT_SECRET is required}"
           umask 077
           {
             echo "sdk.dir=$ANDROID_HOME"
-            echo "GITHUB_CLIENT_ID=$GITHUB_CLIENT_ID"
-            echo "GITHUB_CLIENT_SECRET=$GITHUB_CLIENT_SECRET"
+            echo "GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID:-dummy_client_id}"
+            echo "GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET:-dummy_client_secret}"
           } > local.properties
 
       - name: Run Gradle build
